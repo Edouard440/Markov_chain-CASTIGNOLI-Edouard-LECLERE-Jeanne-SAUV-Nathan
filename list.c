@@ -16,20 +16,17 @@ void displayList(t_list l)
 {
     t_cell* curr;
     curr = l.head;
-    while (curr != NULL) // an element is pointed to
+    while (curr != NULL)
     {
         printf(format, curr->value);
-        curr = curr->next; // move on to the next one
+        curr = curr->next;
     }
 }
 
 AdjacencyList createEmptyAdjacencyList(int size) {
     AdjacencyList adj;
     adj.size = size;
-
-    // Allocate memory for the array of lists
     adj.list = (list *) malloc(size * sizeof(list));
-    // Initialize each list as empty
     for (int i = 0; i < size; i++) {
         adj.list[i].head = NULL;
     }
