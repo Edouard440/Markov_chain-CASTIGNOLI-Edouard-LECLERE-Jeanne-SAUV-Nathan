@@ -6,18 +6,17 @@
 #include "list.h"
 
 
-t_cell *createCell(int val){
-  t_cell *new;
-  new = (t_cell *)malloc(sizeof(t_cell));
-  new->val = val;
-  new->next = NULL;
-  return new;
+cell *createCell(int arrival, float probability) {
+  cell *newCell = malloc(sizeof(cell));
+  newCell->arrival = arrival;
+  newCell->probability = probability;
+  newCell->next = NULL;
+  return newCell;
 }
 
-void addCell(t_list *ptr_list, int val){
-  t_cell *new=createCell(val);
-  new->next = ptr_list->head;
-  ptr_list->head = new;
-  return;
+void addCellToList(list *l, int arrival, float probability) {
+  cell *newCell = createCell(arrival, probability);
+  newCell->next = l->head;
+  l->head = newCell;
 }
 
