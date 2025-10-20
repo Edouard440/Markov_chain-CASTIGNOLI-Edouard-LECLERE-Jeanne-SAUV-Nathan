@@ -1,5 +1,9 @@
 //
 // Created by edoua on 20/10/2025.
+#include "cell.h"
+#include "list.h"
+
+
 t_cell *createCell(int val){
   t_cell *new;
   new = (t_cell *)malloc(sizeof(t_cell));
