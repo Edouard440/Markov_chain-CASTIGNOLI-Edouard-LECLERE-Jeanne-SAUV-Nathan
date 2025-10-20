@@ -46,3 +46,27 @@ void displayAdjacencyList(AdjacencyList adj) {
     }
   }
 }
+
+AdjacencyList readGraph(const char *filename) {
+    FILE *file = fopen(filename, "rt"); // read-only, text
+    int nbvert, start, end;
+    float proba;
+    if (file == NULL)
+    {
+        perror("Could not open file for reading");
+        exit(EXIT_FAILURE);
+    }
+
+    // first line contains number of vertices
+    if (fscanf(file, "%d", &nbvert) != 1)
+    {
+        perror("Could not read number of vertices");
+        exit(EXIT_FAILURE);
+    }
+    AdjacencyList list = createEmptyAdjacencyList(nbvert);
+    while (fscanf(file, "%d %d %f", &start, &end, &proba) == 3){
+        addCellToList(&list.list[start - 1], end, proba);
+    }
+    fclose(file);
+    return list;
+}
