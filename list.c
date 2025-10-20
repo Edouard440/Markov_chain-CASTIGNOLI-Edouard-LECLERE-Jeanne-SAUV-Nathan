@@ -81,9 +81,10 @@ void checkMarkovGraph(AdjacencyList list) {
             }
         if (0.99<= count <= 1){
           printf("The graph is a Markov graph");
+          printf("The sum of the probabilities of vertex %d is %f\n", adj.list[i], count);
         }else {
-          printf("The graph is not a Markov grap
-"
+          printf("The graph is not a Markov grap");
+          printf("The sum of the probabilities of vertex %d is %f\n", adj.list[i], count);
         }
       }
 }
