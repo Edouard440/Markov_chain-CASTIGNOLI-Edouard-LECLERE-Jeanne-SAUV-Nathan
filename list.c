@@ -65,7 +65,7 @@ AdjacencyList readGraph(const char *filename) {
     }
     AdjacencyList list = createEmptyAdjacencyList(nbvert);
     while (fscanf(file, "%d %d %f", &start, &end, &proba) == 3){
-        addCellToList(&list.list[start - 1], end, proba);
+        addCellToList(&(list.list[start - 1]), end, proba);
     }
     fclose(file);
     return list;
