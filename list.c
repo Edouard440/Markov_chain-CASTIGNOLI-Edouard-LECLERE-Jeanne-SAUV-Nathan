@@ -37,6 +37,12 @@ AdjacencyList createEmptyAdjacencyList(int size) {
     return adj;
 }
 
-
-
+void displayAdjacencyList(AdjacencyList adj) {
+  for (int i = 0; i < adj.size; i++) {
+    t_cell* curr = adj.list[i];
+    while (curr != NULL) {
+      printf("%f", curr->value);
+      curr = curr->next;
+    }
+  }
 }
