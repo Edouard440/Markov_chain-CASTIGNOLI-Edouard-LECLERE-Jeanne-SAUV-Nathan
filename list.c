@@ -1,7 +1,8 @@
 //
 // Created by edoua on 20/10/2025.
 //
-
+#include <stdio.h>
+#include <stdlib.h>
 #include "cell.h"
 #include "list.h"
 
@@ -22,3 +23,20 @@ void displayList(t_list l)
     }
 }
 
+AdjacencyList createEmptyAdjacencyList(int size) {
+    AdjacencyList adj;
+    adj.size = size;
+
+    // Allocate memory for the array of lists
+    adj.list = (list *) malloc(size * sizeof(list));
+    // Initialize each list as empty
+    for (int i = 0; i < size; i++) {
+        adj.list[i].head = NULL;
+    }
+
+    return adj;
+}
+
+
+
+}

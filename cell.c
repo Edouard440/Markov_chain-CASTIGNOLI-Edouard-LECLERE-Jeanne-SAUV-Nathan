@@ -1,5 +1,7 @@
 //
 // Created by edoua on 20/10/2025.
+#include <stdio.h>
+#include <stdlib.h>
 #include "cell.h"
 #include "list.h"
 
