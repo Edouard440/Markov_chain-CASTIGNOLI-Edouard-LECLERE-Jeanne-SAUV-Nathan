@@ -70,3 +70,20 @@ AdjacencyList readGraph(const char *filename) {
     fclose(file);
     return list;
 }
+
+void checkMarkovGraph(AdjacencyList list) {
+      int count;
+      for (int i = 0; i < adj.size; i++) {
+        t_cell* curr = adj.list[i];
+        while (curr != NULL) {
+            count += curr -> probability;
+            curr = curr->next;
+            }
+        if (0.99<= count <= 1){
+          printf("The graph is a Markov graph");
+        }else {
+          printf("The graph is not a Markov grap
+"
+        }
+      }
+}
