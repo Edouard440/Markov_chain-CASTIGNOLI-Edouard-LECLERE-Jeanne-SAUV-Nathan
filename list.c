@@ -71,7 +71,7 @@ AdjacencyList readGraph(const char *filename) {
 void checkMarkovGraph(AdjacencyList list) {
 
       for (int i = 0; i < adj.size; i++) {
-        int count = 0;
+        float count = 0;
         t_cell* curr = adj.list[i];
         while (curr != NULL) {
             count += curr -> probability;

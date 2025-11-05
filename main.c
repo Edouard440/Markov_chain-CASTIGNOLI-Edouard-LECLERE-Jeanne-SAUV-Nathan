@@ -1,7 +1,12 @@
 #include <stdio.h>
+#include "cell.h"
+#include "list.h"
+#include "utils.h"
+
 
 
 int main() {
-    printf("Hello, World!\n");
-    return 0;
+    AdjacencyList adj;
+    adj = readGraph("data/exemple1.txt");
+    checkGraph(adj);
 }
