@@ -18,7 +18,7 @@ void displayList(t_list l)
     curr = l.head;
     while (curr != NULL)
     {
-        printf(format, curr->value);
+        printf("%f", curr->probability);
         curr = curr->next;
     }
 }
@@ -26,7 +26,7 @@ void displayList(t_list l)
 AdjacencyList createEmptyAdjacencyList(int size) {
     AdjacencyList adj;
     adj.size = size;
-    adj.list = (list *) malloc(size * sizeof(list));
+    adj.list = (t_list *) malloc(size * sizeof(t_list));
     for (int i = 0; i < size; i++) {
         adj.list[i].head = NULL;
     }
@@ -34,11 +34,17 @@ AdjacencyList createEmptyAdjacencyList(int size) {
     return adj;
 }
 
+void addCellToList(t_list *l, int arrival, float probability) {
+  t_cell *newCell = createCell(arrival, probability);
+  newCell->next = l->head;
+  l->head = newCell;
+}
+
 void displayAdjacencyList(AdjacencyList adj) {
   for (int i = 0; i < adj.size; i++) {
     t_cell* curr = adj.list[i];
     while (curr != NULL) {
-      printf("%f", curr->value);
+      printf("%f", curr->probability);
       curr = curr->next;
     }
   }
@@ -68,7 +74,7 @@ AdjacencyList readGraph(const char *filename) {
     return list;
 }
 
-void checkMarkovGraph(AdjacencyList list) {
+void checkMarkovGraph(AdjacencyList adj) {
 
       for (int i = 0; i < adj.size; i++) {
         float count = 0;

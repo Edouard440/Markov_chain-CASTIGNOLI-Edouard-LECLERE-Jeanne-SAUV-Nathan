@@ -8,5 +8,5 @@
 int main() {
     AdjacencyList adj;
     adj = readGraph("data/exemple1.txt");
-    checkGraph(adj);
+    checkMarkovGraph(adj);
 }
